@@ -1,0 +1,200 @@
+/*
+Table Of Contents:
+- Google Font Link.
+- Styling For Checkboxes.
+- Styling For The Container & its output.
+- Styling For The Generate Password & Clipboard button.
+- Styling For The Content Of The Box (Settings).
+- Using data-tooltip to give a desc popup effect for the copy button to be more clear for what it does.
+- https://codepen.io/rabbitfighter81/pen/MaOvvE --> For Blink Effect In Header.
+- https://codepen.io/reiinii1/pen/aPGXEa --> For tooltip effect.
+
+***************Developed with ❤️️ By Moe Hodroj****************
+*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Raleway&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #0093E9;
+	background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+	color: #fff;
+	display: flex;
+	font-family: 'Raleway', sans-serif;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	min-height: 100vh;
+}
+
+p {
+	margin: 5px 0;
+}
+
+h2 {
+	margin: 10px 0 20px;
+	text-align: center;
+	font-family: 'Orbitron', sans-serif;	
+}
+/*Styling for the checkboxes*/
+input[type=checkbox] {
+	margin-right: 0;
+}
+/*Styling for the container and its output*/
+.container {
+	background-color: #1979a9;
+	box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+	padding: 20px;
+	width: 350px;
+	max-width: 100%;
+	
+}
+
+.output-container {
+	background-color: rgba(0, 0, 0, 0.4);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+	font-size: 18px;
+	letter-spacing: 1px;
+	padding: 12px 10px;
+	height: 140px;
+	width: 100%;
+}
+
+.output-container #result {
+	word-wrap: break-word;
+	max-width: calc(100% - 40px);
+}
+
+.output-container .btn {
+	font-size: 20px;
+	position: absolute;
+	top: 81px;
+	right: 10px;
+	height: 40px;
+	width: 40px;
+}
+
+textarea {
+	resize: none;
+	width: 100%;
+    height: 100px;
+ }
+/*Styling for the container ends here*/
+/*Styling for the button*/
+.btn {
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 8px 12px;
+	background-color: #042f66;
+}
+
+.btn-large {
+	display: block;
+	width: 100%;
+}
+/*Styling for the button ends here*/
+/*Styling for the content of the box*/
+.setting {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px 0;
+}
+
+@media screen and (max-width: 400px) {
+	.result-container {
+		font-size: 14px;
+	}
+}
+/*Making copy button popup a description in a fancy way :D */
+[data-tooltip] {
+	position: relative;
+	z-index: 10;
+  }
+  
+  /* Positioning and visibility settings of the tooltip */
+  [data-tooltip]:before,
+  [data-tooltip]:after {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	left: 50%;
+	bottom: calc(100% + 5px); /* 5px is the size of the arrow */
+	pointer-events: none;
+	transition: 0.2s;
+	will-change: transform;
+  }
+  
+  /* The actual tooltip with a dynamic width */
+  [data-tooltip]:before {
+	content: attr(data-tooltip);
+	padding: 10px 18px;
+	min-width: 50px;
+	max-width: 300px;
+	width: max-content;
+	width: -moz-max-content;
+	border-radius: 6px;
+	font-size: 14px;
+	background-color: rgba(59, 72, 80, 0.9);
+	background-image: linear-gradient(30deg,
+	  rgba(59, 72, 80, 0.44),
+	  rgba(59, 68, 75, 0.44),
+	  rgba(60, 82, 88, 0.44));
+	box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	text-align: center;
+	white-space: pre-wrap;
+	transform: translate(-50%, -5px) scale(0.5);
+  }
+  
+  /* Tooltip arrow */
+  [data-tooltip]:after {
+	content: '';
+	border-style: solid;
+	border-width: 5px 5px 0px 5px; /* CSS triangle */
+	border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+	transition-duration: 0s; /* If the mouse leaves the element, 
+								the transition effects for the 
+								tooltip arrow are "turned off" */
+	transform-origin: top;   /* Orientation setting for the
+								slide-down effect */
+	transform: translateX(-50%) scaleY(0);
+  }
+  
+  /* Tooltip becomes visible at hover */
+  [data-tooltip]:hover:before,
+  [data-tooltip]:hover:after {
+	visibility: visible;
+	opacity: 1;
+  }
+  /* Scales from 0.5 to 1 -> grow effect */
+  [data-tooltip]:hover:before {
+	transition-delay: 0.3s;
+	transform: translate(-50%, -5px) scale(1);
+  }
+  /* 
+	Arrow slide down effect only on mouseenter (NOT on mouseleave)
+  */
+  [data-tooltip]:hover:after {
+	transition-delay: 0.5s; /* Starting after the grow effect */
+	transition-duration: 0.2s;
+	transform: translateX(-50%) scaleY(1);
+  }
+/* Making header fancy with blink effect*/
+@keyframes blinker { 
+	from { opacity: 1.0; } to { opacity: 0.0; }
+  }
+  .blinker { 
+	animation-name: blinker;
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	display: inline-block;
+  }

@@ -1,0 +1,56 @@
+
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Random Password Generator By Moe HJ</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit:300,500,700'>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<section>
+<div class="container">
+	
+	<h2>> <span class='blinker'>_</span> Random Password Generator</h2> <!--Header for the password generator box-->
+	<div class="output-container">
+		<textarea id="output"></textarea> <!--The output box where the password will be shown-->
+		<button data-tooltip="Click To Copy Password!" onclick="copy()" class="btn" id="clipboard"> <!--The clipboard button-->
+			<i class="far fa-clipboard"></i>
+		</button>
+	</div>
+	<div class="settings">
+		<div class="setting">
+			<label for="passlength">Password length</label> <!--label for password length-->
+			<!--<input type="range" id="length" min='8' max='128' value='8' /> 
+			<output for="passlength" id="length">50</output><!--Maximum Password Length-->
+			<input type="range" id="length" value="8" min="8" max="128" oninput="this.nextElementSibling.value = this.value">
+<output>8</output>
+		</div>
+		<div class="setting">
+			<label>Include uppercase letters</label> <!--Checkboxes for different settings-->
+			<input type="checkbox" id="uppercase" checked />
+		</div>
+		<div class="setting">
+			<label>Include lowercase letters</label> 
+			<input type="checkbox" id="lowercase" checked />
+		</div>
+		<div class="setting">
+			<label>Include numbers</label> 
+			<input type="checkbox" id="numbers" checked />
+		</div>
+		<div class="setting">
+			<label>Include symbols</label> 
+			<input type="checkbox" id="symbols" checked /><!--Checboxes settings ends here-->
+		</div>
+	</div>
+	<button class="btn btn-large" id="generate"> <!--Generate Password Button-->
+		Generate password
+	</button>
+</div>
+</section><br>
+<footer>Developed with ❤️️ By Moe Hodroj © 2020</footer>
+<script src='https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js'></script> <!--Script for the clipboard-->
+<script  src="main.js"></script>
+
+</body>
+</html>
